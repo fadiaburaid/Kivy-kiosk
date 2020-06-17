@@ -67,12 +67,23 @@ sudo nano /etc/default/grub
 ```
 
 GRUB_CMDLINE_LINUX_DEFAULT="plymouth:debug splash vt.handoff=7 kaslr"
+
+Install the plymouth and themes tool on Ubuntu
 ```
 sudo apt-get install plymouth plymouth-themes
+```
+Change the theme to your preferance (Here I choose spinfinity)
+```
 sudo update-alternatives --install /usr/share/plymouth/themes/default.plymouth default.plymouth /usr/share/plymouth/themes/spinfinity/spinfinity.plymouth 100
+```
+Then run the below command.
 
+```
 sudo update-alternatives --config default.plymouth
 sudo update-initramfs -u
+```
+To change the boot image replace it using the following command(replace your image path)
 
-sudo cp /home/qms/ubuntu-logo.png /usr/share/plymouth/ubuntu-logo.png
+```
+sudo cp [your image path] /usr/share/plymouth/ubuntu-logo.png
 ```
