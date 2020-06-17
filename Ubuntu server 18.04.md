@@ -112,4 +112,4 @@ Reboot your system to see the results
 sudo reboot
 ```
 # Image of result
-![alt text](https://github.com/fadiaburaid/Kivy-kiosk/blob/images/boot.gif?raw=true)
+![alt text](https://github.com/fadiaburaid/Kivy-kiosk/blob/master/images/boot.gif?raw=true)
