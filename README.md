@@ -4,10 +4,11 @@ Ubuntu server 18.04  Kivy kiosk
 
 First we need to install a fresh Ubuntu server 18.04 . After the installation is complete, make sure to install any available updates by executing the following commands:
 
+"
 sudo apt-get update
 sudo apt-get upgrade 
 sudo reboot
-
+"
 
 To install Kivy enter the following:
 
@@ -29,15 +30,15 @@ The Openbox configuration file is located at “/etc/xdg/openbox/autostart”. W
 
 sudo nano /etc/xdg/openbox/autostart
 
-# Disable any form of screen saver / screen blanking / power management
+#Disable any form of screen saver / screen blanking / power management
 xset s off
 xset s noblank
 xset -dpms
 
-# Allow quitting the X server with CTRL-ATL-Backspace
+#Allow quitting the X server with CTRL-ATL-Backspace
 setxkbmap -option terminate:ctrl_alt_bksp
 
-# Start Kivy program
+#Start Kivy program
 (python3 /home/[user]/[python script].py) &
 
 
