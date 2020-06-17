@@ -1,7 +1,5 @@
 # Ubuntu server 18.04 Kivy kiosk with autostart custom splash screen
 
-Ubuntu server 18.04  Kivy kiosk
-
 First we need to install a fresh Ubuntu server 18.04 . After the installation is complete, make sure to install any available updates by executing the following commands:
 
 ```
@@ -18,6 +16,10 @@ sudo apt-get install cython3 python3-dev
 sudo apt-get install libsdl2-dev libsdl2-ttf-dev libsdl2-image-dev libsdl2-mixer-dev
 sudo python3.6 -m pip3 install git+https://github.com/kivy/kivy.git@master
 ```
+
+# Install GUI components, window manager and configuring auto boot
+If you tried to run your Kivy application in Ubuntu server you will get an error  **Unable to get a Window, abort** .
+This is because it Ubuntu server doesn't come with GUI and window manager.
 
 To install a minimal X11 on Ubuntu Server Edition enter the following:
 ```
@@ -60,10 +62,15 @@ We can accomplish this by configuring the “.bash_profile” file for the auto 
 cd
 sudo nano .bash_profile
 ```
-now append the following line to the file:
+Then append the following line to the file:
 ```
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx
 ```
+Now you can reboot to test whether your Kivy application will run automatically after booting by typing.
+```
+sudo reboot
+```
+
 
 # Set a custom splash screen with your choosen image
 
