@@ -96,3 +96,7 @@ Edit the  GRUB_LINUX_DEFAULT line to be:
 ```
 GRUB_CMDLINE_LINUX_DEFAULT="plymouth:debug splash vt.handoff=7 kaslr"
 ```
+To update grub to new settings
+```
+sudo update-grub
+```
