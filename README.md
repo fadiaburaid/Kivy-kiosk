@@ -28,23 +28,25 @@ Next install a Window Manager:
 ```
 sudo apt-get install openbox
 ```
-The Openbox configuration file is located at “/etc/xdg/openbox/autostart”. We can open it for editing with the following command (replace user and pyton script):
+The Openbox configuration file is located at “/etc/xdg/openbox/autostart”. We can open it for editing with the following command :
 
 ```
 sudo nano /etc/xdg/openbox/autostart
 ```
+Then we append the following (replace user and pyton script)
 
-#Disable any form of screen saver / screen blanking / power management
+```
+# Disable any form of screen saver / screen blanking / power management
 xset s off
 xset s noblank
 xset -dpms
 
-#Allow quitting the X server with CTRL-ATL-Backspace
+# Allow quitting the X server with CTRL-ATL-Backspace
 setxkbmap -option terminate:ctrl_alt_bksp
 
-#Start Kivy program
+# Start Kivy program
 (python3 /home/[user]/[python script].py) &
-
+```
 
 The main part of the configuration is done. To start the GUI simply type “startx” in the console, the GUI can be closed by pressing ctr+alt+backspace.
 
@@ -59,14 +61,11 @@ cd
 sudo nano .bash_profile
 ```
 now append the following line to the file:
-
+```
 [[ -z $DISPLAY && $XDG_VTNR -eq 1 ]] && startx
- 
-```
-sudo nano /etc/default/grub
 ```
 
-GRUB_CMDLINE_LINUX_DEFAULT="plymouth:debug splash vt.handoff=7 kaslr"
+# Set a custom splash screen with your choosen image
 
 Install the plymouth and themes tool on Ubuntu
 ```
@@ -86,4 +85,14 @@ To change the boot image replace it using the following command(replace your ima
 
 ```
 sudo cp [your image path] /usr/share/plymouth/ubuntu-logo.png
+```
+Edit the file /etc/default/grub to enable plymouth splash by typing:
+
+```
+sudo nano /etc/default/grub
+```
+Edit the  GRUB_LINUX_DEFAULT line to be:
+
+```
+GRUB_CMDLINE_LINUX_DEFAULT="plymouth:debug splash vt.handoff=7 kaslr"
 ```
