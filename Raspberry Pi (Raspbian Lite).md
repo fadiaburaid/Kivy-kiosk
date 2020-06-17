@@ -152,5 +152,5 @@ dmesg --console-off
   * `sudo systemctl disable getty@tty1.service`
 
 
-* Credits to :
-* https://github.com/YetiTool/console-raspi3b-plus-platform
+# Credits to :
+ * https://github.com/YetiTool/console-raspi3b-plus-platform
