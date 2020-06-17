@@ -150,3 +150,7 @@ dmesg --console-off
 
 * Suppress login prompt on console (tty1)
   * `sudo systemctl disable getty@tty1.service`
+
+
+* Credits to :
+* https://github.com/YetiTool/console-raspi3b-plus-platform
