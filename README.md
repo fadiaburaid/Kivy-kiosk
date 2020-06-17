@@ -17,7 +17,7 @@ sudo apt-get install libsdl2-dev libsdl2-ttf-dev libsdl2-image-dev libsdl2-mixer
 sudo python3.6 -m pip3 install git+https://github.com/kivy/kivy.git@master
 ```
 
-# Install GUI components, window manager and configuring auto boot
+# Install GUI components, window manager and configure auto boot
 If you tried to run your Kivy application in Ubuntu server you will get an error  **Unable to get a Window, abort** .
 This is because it Ubuntu server doesn't come with GUI and window manager.
 
