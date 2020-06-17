@@ -1,12 +1,6 @@
-## SW resources
-* Raspbian Stretch Lite, [torrent here](https://downloads.raspberrypi.org/raspbian_lite_latest.torrent)
-  * June 2018 image
-  * Release date: 2018-06-27
-  * SHA-256:3271b244734286d99aeba8fa043b6634cad488d211583814a2018fc14fdca313
+Download Raspbian Stretch Lite, [torrent here](https://downloads.raspberrypi.org/raspbian_lite_latest.torrent)
 
-# Build steps
-
-## Burn Raspbian image onto microSD card
+Burn Raspbian image onto microSD card
 * Format microSD card
   * For MS Windows machine:
   * App: SDFormatter [for MS Windows](https://www.sdcard.org/downloads/formatter_4/)
@@ -17,7 +11,7 @@
   * App: Etcher [for MS Windows](https://etcher.io/)
   * Burn image on to SD card
   
-  ### Manual Pi Config
+ # Configure the Raspberry Pi
 You will need to connect a keyboard to the RasPi, and use the screen to follow these steps.
 * Login:
   * user: pi
@@ -44,4 +38,7 @@ You will need to connect a keyboard to the RasPi, and use the screen to follow t
         * Enable Serial port hardware -> Yes
     * <7> Advanced Options
       * A3 Memory Split -> 128MB
-    * Exit, reboot
+    * Exit, reboot `sudo reboot`
+
+ Get the Pi's IP address
+  * Find your Pi's IP with `sudo ifconfig` (under "wlan0: ...", "inet ..." e.g. 192.168.0.27
