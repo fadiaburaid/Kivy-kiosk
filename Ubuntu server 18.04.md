@@ -1,4 +1,4 @@
-## Ubuntu server 18.04 Kivy kiosk with autostart custom splash screen
+# Ubuntu server 18.04 Kivy kiosk with autostart custom splash screen
 
 First we need to install a fresh Ubuntu server 18.04 . After the installation is complete, make sure to install any available updates by executing the following commands:
 
@@ -17,7 +17,7 @@ sudo apt-get install libsdl2-dev libsdl2-ttf-dev libsdl2-image-dev libsdl2-mixer
 sudo python3.6 -m pip3 install git+https://github.com/kivy/kivy.git@master
 ```
 
-# Install GUI components, window manager and configure auto boot
+## Install GUI components, window manager and configure auto boot
 If you tried to run your Kivy application in Ubuntu server you will get an error  **Unable to get a Window, abort** .
 This is because it Ubuntu server doesn't come with GUI and window manager.
 
@@ -72,7 +72,7 @@ sudo reboot
 ```
 
 
-# Set a custom splash screen with your choosen image
+## Set a custom splash screen with your choosen image
 
 Install the plymouth and themes tool on Ubuntu
 ```
@@ -111,5 +111,5 @@ Reboot your system to see the results
 ```
 sudo reboot
 ```
-# Image of result
+## Image of result
 ![alt text](https://github.com/fadiaburaid/Kivy-kiosk/blob/master/images/boot.gif?raw=true)
