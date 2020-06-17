@@ -1,4 +1,4 @@
-# Ubuntu server 18.04 Kivy kiosk with autostart custom splash screen
+## Ubuntu server 18.04 Kivy kiosk with autostart custom splash screen
 
 First we need to install a fresh Ubuntu server 18.04 . After the installation is complete, make sure to install any available updates by executing the following commands:
 
