@@ -42,3 +42,29 @@ You will need to connect a keyboard to the RasPi, and use the screen to follow t
 
  Get the Pi's IP address
   * Find your Pi's IP with `sudo ifconfig` (under "wlan0: ...", "inet ..." e.g. 192.168.0.27
+#### SSH connection
+You can now securely connect to your RasPi via SSH.
+
+We like to use the PuTTY SSH client, and FileZilla for SSH file transfer.
+
+* PuTTY can be obtained [here](https://www.chiark.greenend.org.uk/~sgtatham/putty/latest.html).
+* FileZilla can be found [here](https://filezilla-project.org/download.php?type=client).
+
+#### Kivy Install
+Build steps mostly taken from Kivy [site](https://kivy.org/doc/stable/installation/installation-rpi.html), with added `pip` install step.
+* Kivy dependencies
+  * `sudo apt-get update`
+  * ```
+    sudo apt-get install -y libsdl2-dev libsdl2-image-dev libsdl2-mixer-dev libsdl2-ttf-dev \
+       pkg-config libgl1-mesa-dev libgles2-mesa-dev \
+       python-setuptools libgstreamer1.0-dev git-core \
+       gstreamer1.0-plugins-{bad,base,good,ugly} \
+       gstreamer1.0-{omx,alsa} python-dev libmtdev-dev \
+       xclip xsel
+    ```
+* pip install
+  * `sudo apt-get install python3-pip`
+* cython install (long time!)
+  * `sudo pip3 install -U Cython==0.28.2`
+* kivy (long install!) - currently testing 1.10.1
+  * `sudo pip3 install git+https://github.com/kivy/kivy.git@1.10.1`
