@@ -59,7 +59,7 @@ Build steps mostly taken from Kivy [site](https://kivy.org/doc/stable/installati
        pkg-config libgl1-mesa-dev libgles2-mesa-dev \
        python-setuptools libgstreamer1.0-dev git-core \
        gstreamer1.0-plugins-{bad,base,good,ugly} \
-       gstreamer1.0-{omx,alsa} python-dev libmtdev-dev \
+       gstreamer1.0-{omx,alsa} python3-dev libmtdev-dev \
        xclip xsel
     ```
 * pip install
