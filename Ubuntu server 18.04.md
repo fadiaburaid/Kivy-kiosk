@@ -107,3 +107,9 @@ To update grub to new settings
 ```
 sudo update-grub
 ```
+Reboot your system to see the results
+```
+sudo reboot
+```
+# Image of result
+![alt text](https://github.com/fadiaburaid/Kivy-kiosk/blob/images/boot.gif?raw=true)
