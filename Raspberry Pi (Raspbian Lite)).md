@@ -68,3 +68,85 @@ Build steps mostly taken from Kivy [site](https://kivy.org/doc/stable/installati
   * `sudo pip3 install -U Cython==0.28.2`
 * kivy (long install!) - currently testing 1.10.1
   * `sudo pip3 install git+https://github.com/kivy/kivy.git@1.10.1`
+#### Autostart
+To enable the pi to autostart EasyCut app on booting
+* create bash script to run app
+  * `touch /home/pi/starteasycut.sh`
+  * `sudo nano /home/pi/starteasycut.sh`
+    *  ... add
+       ```
+       #!/bin/bash
+       echo "start easycut"
+       cd /home/pi/easycut-smartbench/src/
+       exec python main.py
+       ```
+  * make sure script is executable:
+    * `sudo chmod +x /home/pi/starteasycut.sh`
+  * test
+    * `bash starteasycut.sh`
+* create a file for the service, edit and enable.
+  * `sudo touch /lib/systemd/system/easycut.service`
+  * `sudo nano /lib/systemd/system/easycut.service`
+  * ...add (note "Type" can be 'simple' to speed up, but 'idle' will wait to avoid interleaved shelloutput)
+    ```
+    [Unit]
+    Description=run easycut service and redirect stderr and stdout to a log file
+    After=multi-user.target
+
+    [Service]
+    Type=idle
+    ExecStart=/home/pi/starteasycut.sh
+    User=pi
+
+    [Install]
+    WantedBy=multi-user.target
+    ```
+  * ...to check file
+    * `sudo systemctl cat easycut.service`
+
+  * `sudo systemctl enable easycut.service`
+  * `sudo systemctl start easycut.service`
+  * `sudo reboot`
+  * ...check status of service if not started
+    * `sudo systemctl status easycut`
+    * `sudo journalctl _SYSTEMD_UNIT=easycut.service`
+
+#### Splashscreen
+```
+sudo apt-get install plymouth plymouth-themes
+sudo plymouth-set-default-theme -l
+sudo plymouth-set-default-theme -R spinfinity
+```
+...where spinfinity can be swapped to <details, fade-in, glow, script, solar, spinfinity, spinner, text, tribar>
+
+Replace `/usr/share/plymouth/debian-logo.png` with new splashscreen image
+* `sudo cp ~/easycut-smartbench/src/asmcnc/skavaUI/img/debian-logo.png /usr/share/plymouth/debian-logo.png`
+
+#### Silent boot procedure
+Note!! Last step, since after doing this, you'll loose the console on tty after boot. You can swap tty's (terminals) though (CTRL+ALT+F<1-6>) to see one.
+* remove rainbow square
+  * `sudo nano /boot/config.txt`
+  * add `disable_splash=1`
+* remove verbose logging at startup
+  * `sudo nano /boot/cmdline.txt`
+  * Then, replace `console=tty1` with `console=tty3`. This redirects boot messages to tty3.
+  * add to the end of the line:
+    * `splash quiet plymouth.ignore-serial-consoles logo.nologo vt.global_cursor_default=0`
+* change the auto login in systemd (Hides the login message when auto-login happens)
+  * `sudo nano /etc/systemd/system/autologin\@.service`
+  * Change your auto login ExecStart from:
+    * from `ExecStart=-/sbin/agetty --autologin pi --noclear %I $TERM`
+    * to `ExecStart=-/sbin/agetty --skip-login --noclear --noissue --login-options "-f pi" %I $TERM`
+    * Make sure to change 'pi' to the username you use!
+* hush login
+  * `touch ~/.hushlogin`
+* Suppress Kernel Messages
+  * `sudo nano /etc/rc.local`
+    * ...add this before 'exit 0':
+```
+#Suppress Kernel Messages
+dmesg --console-off
+```
+
+* Suppress login prompt on console (tty1)
+  * `sudo systemctl disable getty@tty1.service`
