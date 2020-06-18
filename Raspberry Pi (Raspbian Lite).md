@@ -1,4 +1,4 @@
-Download Raspbian Stretch Lite, [torrent here](https://downloads.raspberrypi.org/raspbian_lite_latest.torrent)
+Download latest Raspbian Lite, [torrent here](https://downloads.raspberrypi.org/raspbian_lite_latest.torrent)
 
 Burn Raspbian image onto microSD card
 * Format microSD card
