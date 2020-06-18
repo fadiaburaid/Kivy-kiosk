@@ -11,7 +11,7 @@ Burn Raspbian image onto microSD card
   * App: Etcher [for MS Windows](https://etcher.io/)
   * Burn image on to SD card
   
- # Configure the Raspberry Pi
+ ### Configure the Raspberry Pi
 You will need to connect a keyboard to the RasPi, and use the screen to follow these steps.
 * Login:
   * user: pi
@@ -152,5 +152,5 @@ dmesg --console-off
   * `sudo systemctl disable getty@tty1.service`
 
 
-# Credits to :
+### Credits to :
  * https://github.com/YetiTool/console-raspi3b-plus-platform
